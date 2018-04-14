@@ -2427,7 +2427,10 @@ public Action:cmdSendPlayer(client, args)
 
 		new target1 = FindTarget2(client, arg1, true, false);
 		new target2 = FindTarget2(client, arg2, true, false);
-
+		
+		if (target1 < 0 || target2 < 0){
+			return Plugin_Handled;
+		}
 		if(speedrunStatus[target1]){
 			ReplyToCommand(client, "\x01[\x03JA\x01] You cannot send a player in a speedrun");
 			return Plugin_Handled;
